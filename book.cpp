@@ -102,10 +102,6 @@ int main() {
 	char op;
 	do {
 		system("cls");
-		ofstream out("sitename.txt");
-		for (int i = 0; i < 50; i++) {
-			out << sitename[k];
-		}
 		cout << "1. Добавить сайт" << endl;
 		cout << "2. Список всех сайтов" << endl;
 		cout << "3. Поиск" << endl;
