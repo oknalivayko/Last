@@ -1,5 +1,4 @@
 #include<iostream>
-#include<conio.h>
 #include<stdlib.h>
 
 using namespace std;
@@ -46,8 +45,7 @@ void print(int c) {
 		cout << "Номер телефона: " << number[c] << endl;
 		cout << "Email: " << email[c] << endl;
 		cout << "Пароль : " << password[c] << endl << endl;
-		cout << "Чтобы продолжить нажмите любую кнопку" << endl << endl;
-		getch();
+		system("pause");
 	}
 }
 void printAll() {
@@ -116,8 +114,7 @@ int main() {
 		{
 			add();
 			cout << "Сайт добавлен" << endl;
-			cout << "Нажмите любую кнопку, чтобы продолжить";
-			getch();
+			system("pause");
 			break;
 		}
 		case '2':
