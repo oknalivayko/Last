@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string sitename[50];
+string sitename[51];
 string number[50];
 string email[50];
 string password[50];
@@ -21,7 +21,7 @@ int checksite(string check) {
 
 void add() {
 	string check = "";
-	cout << "Введите сайт: ";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: ";
 	cin >> check;
 	
 	if (checksite(check) == 1) {
@@ -29,25 +29,25 @@ void add() {
 		sitename[k] = check;
 	}
 	else {
-		cout << endl << "Вы уже вводили данные с этого сайта" << endl;
+		cout << endl << "пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ" << endl;
 		return;
 	}
-	cout << "Введите номер телефона: ";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
 	cin >> number[k];
-	cout << "Введите почту: ";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
 	cin >> email[k];
-	cout << "Введите пароль: ";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
 	cin >> password[k];
 }
 void print(int c) {
 	if (sitename[c] == "")
 		return;
 	if (k > -1) {
-		cout << "Сайт: " << sitename[c] << endl;
-		cout << "Номер телефона: " << number[c] << endl;
+		cout << "пїЅпїЅпїЅпїЅ: " << sitename[c] << endl;
+		cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << number[c] << endl;
 		cout << "Email: " << email[c] << endl;
-		cout << "Пароль : " << password[c] << endl << endl;
-		system("pause");
+		cout << "пїЅпїЅпїЅпїЅпїЅпїЅ : " << password[c] << endl << endl;
+		system("read");
 	}
 }
 void printAll() {
@@ -60,20 +60,20 @@ void printAll() {
 
 void updtinfo(int c) {
 	string check = "";
-	cout << "Введите название сайта: ";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
 	cin >> check;
 	if (checksite(check)) {
 		sitename[c] = check;
 	}
 	else {
-		cout << endl << "Такой сайт уже есть в списке" << endl;
+		cout << endl << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << endl;
 		return;
 	}
-	cout << "Телефон: ";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
 	cin >> number[c];
 	cout << "Email: ";
 	cin >> email[c];
-	cout << "Пароль: ";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅ: ";
 	cin >> password[c];
 }
 void delSite(int c) {
@@ -87,7 +87,7 @@ int find() {
 		return -1;
 
 	string check;
-	cout << "Введите название сайта: ";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
 	cin >> check;
 	for (int i = 0; i <= k; i++) {
 		if (sitename[i] == check) {
@@ -102,20 +102,20 @@ int main() {
 	char op;
 	do {
 		system("cls");
-		cout << "1. Добавить сайт" << endl;
-		cout << "2. Список всех сайтов" << endl;
-		cout << "3. Поиск" << endl;
-		cout << "4. Обновить информацию" << endl;
-		cout << "5. Удалить информацию" << endl;
-		cout << "6. Выйти из программы" << endl << endl;
-		cout << "Выберите опцию:";
+		cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ" << endl;
+		cout << "2. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << endl;
+		cout << "3. пїЅпїЅпїЅпїЅпїЅ" << endl;
+		cout << "4. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << endl;
+		cout << "5. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << endl;
+		cout << "6. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << endl << endl;
+		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:";
 		cin >> op;
 
 		switch (op) {
 		case '1':
 		{
 			add();
-			cout << "Сайт добавлен" << endl;
+			cout << "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << endl;
 			system("pause");
 			break;
 		}
