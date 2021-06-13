@@ -1,5 +1,6 @@
 #include<iostream>
 #include<stdlib.h>
+#include <fstream>
 
 using namespace std;
 
@@ -22,6 +23,7 @@ void add() {
 	string check = "";
 	cout << "Введите сайт: ";
 	cin >> check;
+	
 	if (checksite(check) == 1) {
 		k++;
 		sitename[k] = check;
@@ -100,6 +102,10 @@ int main() {
 	char op;
 	do {
 		system("cls");
+		ofstream out("sitename.txt");
+		for (int i = 0; i < 50; i++) {
+			out << sitename[k];
+		}
 		cout << "1. Добавить сайт" << endl;
 		cout << "2. Список всех сайтов" << endl;
 		cout << "3. Поиск" << endl;
@@ -148,13 +154,21 @@ int main() {
 		}
 		case '6':
 		{
+			ofstream out("sitename.txt");
+			for (int i = 0; i < 50; i++) {
+				out << sitename[i];
+			}
+			out.close();
+		}
+		case '7':
+		{
 			continue;
 			break;
 		}
 		}
 
-	} while (op != '6');
-
+	} while (op != '7');
+	
 	return 0;
 
 }
