@@ -47,7 +47,7 @@ void print(int c) {
 		cout << "phone nubmer: " << number[c] << endl;
 		cout << "Email: " << email[c] << endl;
 		cout << "password: " << password[c] << endl << endl;
-		system("pause");
+		system("read");
 	}
 }
 void printAll() {
@@ -103,7 +103,8 @@ int main() {
 		system("cls");
 		ofstream out("sitename.txt");
 		for (int i = 0; i < 50; i++) {
-			out << sitename[k];
+			out << sitename[i] << endl;
+			
 		}
 		cout << "1. Add website" << endl;
 		cout << "2. List of all websites" << endl;
@@ -154,7 +155,6 @@ int main() {
 		}
 		case '6':
 		{
-			
 			ofstream out;
 			out.open("sitename.txt");
 			if (!out.is_open())
@@ -165,6 +165,7 @@ int main() {
 				out << sitename[j];
 			}
 			out.close();
+			break;
 
 			
 		}
