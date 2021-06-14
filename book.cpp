@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string sitename[51];
+string sitename[50];
 string number[50];
 string email[50];
 string password[50];
@@ -21,33 +21,33 @@ int checksite(string check) {
 
 void add() {
 	string check = "";
-	cout << "������� ����: ";
+	cout << "Enter website: ";
 	cin >> check;
-	
+
 	if (checksite(check) == 1) {
 		k++;
 		sitename[k] = check;
 	}
 	else {
-		cout << endl << "�� ��� ������� ������ � ����� �����" << endl;
+		cout << endl << "You have already entered data from this website" << endl;
 		return;
 	}
-	cout << "������� ����� ��������: ";
+	cout << "Enter phone nubmer: ";
 	cin >> number[k];
-	cout << "������� �����: ";
+	cout << "Enter email: ";
 	cin >> email[k];
-	cout << "������� ������: ";
+	cout << "Enter password: ";
 	cin >> password[k];
 }
 void print(int c) {
 	if (sitename[c] == "")
 		return;
 	if (k > -1) {
-		cout << "����: " << sitename[c] << endl;
-		cout << "����� ��������: " << number[c] << endl;
+		cout << "Website: " << sitename[c] << endl;
+		cout << "phone nubmer: " << number[c] << endl;
 		cout << "Email: " << email[c] << endl;
-		cout << "������ : " << password[c] << endl << endl;
-		system("read");
+		cout << "password: " << password[c] << endl << endl;
+		system("pause");
 	}
 }
 void printAll() {
@@ -60,20 +60,20 @@ void printAll() {
 
 void updtinfo(int c) {
 	string check = "";
-	cout << "������� �������� �����: ";
+	cout << "Enter website: ";
 	cin >> check;
 	if (checksite(check)) {
 		sitename[c] = check;
 	}
 	else {
-		cout << endl << "����� ���� ��� ���� � ������" << endl;
+		cout << endl << "You have already entered data from this website" << endl;
 		return;
 	}
-	cout << "�������: ";
+	cout << "Phone number: ";
 	cin >> number[c];
 	cout << "Email: ";
 	cin >> email[c];
-	cout << "������: ";
+	cout << "password: ";
 	cin >> password[c];
 }
 void delSite(int c) {
@@ -87,7 +87,7 @@ int find() {
 		return -1;
 
 	string check;
-	cout << "������� �������� �����: ";
+	cout << "Enter website: ";
 	cin >> check;
 	for (int i = 0; i <= k; i++) {
 		if (sitename[i] == check) {
@@ -98,24 +98,28 @@ int find() {
 }
 
 int main() {
-	setlocale(LC_ALL, "Russian");
 	char op;
 	do {
 		system("cls");
-		cout << "1. �������� ����" << endl;
-		cout << "2. ������ ���� ������" << endl;
-		cout << "3. �����" << endl;
-		cout << "4. �������� ����������" << endl;
-		cout << "5. ������� ����������" << endl;
-		cout << "6. ����� �� ���������" << endl << endl;
-		cout << "�������� �����:";
+		ofstream out("sitename.txt");
+		for (int i = 0; i < 50; i++) {
+			out << sitename[k];
+		}
+		cout << "1. Add website" << endl;
+		cout << "2. List of all websites" << endl;
+		cout << "3. Search" << endl;
+		cout << "4. Update" << endl;
+		cout << "5. Delete" << endl;
+		cout << "6. Save" << endl;
+		cout << "7. Exit" << endl << endl;
+		cout << "Choose the option:";
 		cin >> op;
 
 		switch (op) {
 		case '1':
 		{
 			add();
-			cout << "���� ��������" << endl;
+			cout << "Website added" << endl;
 			system("pause");
 			break;
 		}
@@ -150,11 +154,19 @@ int main() {
 		}
 		case '6':
 		{
-			ofstream out("sitename.txt");
-			for (int i = 0; i < 50; i++) {
-				out << sitename[i];
+			
+			ofstream out;
+			out.open("sitename.txt");
+			if (!out.is_open())
+			{
+				cerr << "error\n";
+			}
+			for (int j = 0; j < k; j++) {
+				out << sitename[j];
 			}
 			out.close();
+
+			
 		}
 		case '7':
 		{
@@ -164,7 +176,7 @@ int main() {
 		}
 
 	} while (op != '7');
-	
+
 	return 0;
 
 }
