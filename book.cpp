@@ -100,12 +100,7 @@ int find() {
 int main() {
 	char op;
 	do {
-		system("cls");
-		ofstream out("sitename.txt");
-		for (int i = 0; i < 50; i++) {
-			out << sitename[i] << endl;
-			
-		}
+		system("cls");	
 		cout << "1. Add website" << endl;
 		cout << "2. List of all websites" << endl;
 		cout << "3. Search" << endl;
@@ -161,8 +156,8 @@ int main() {
 			{
 				cerr << "error\n";
 			}
-			for (int j = 0; j < k; j++) {
-				out << sitename[j];
+			for (int i = 0; i <= k; i++) {
+				out << sitename[i] << endl;
 			}
 			out.close();
 			break;
