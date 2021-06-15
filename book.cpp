@@ -1,6 +1,7 @@
 #include<iostream>
 #include<stdlib.h>
 #include <fstream>
+#include<string>
 
 using namespace std;
 
@@ -100,15 +101,6 @@ int find() {
 int main() {
 	char op;
 	do {
-		ifstream in("sitename.txt");
-		for (int i = 0; i < 50; i++) {
-			in >> sitename[i];
-			in >> number[i];
-			in >> email[i];
-			in >> password[i];
-		}
-
-		in.close();
 		system("cls");	
 		cout << "1. Add website" << endl;
 		cout << "2. List of all websites" << endl;
@@ -116,7 +108,8 @@ int main() {
 		cout << "4. Update" << endl;
 		cout << "5. Delete" << endl;
 		cout << "6. Save" << endl;
-		cout << "7. Exit" << endl << endl;
+		cout << "7. Open" << endl;
+		cout << "8. Exit" << endl << endl;
 		cout << "Choose the option:";
 		cin >> op;
 
@@ -131,6 +124,7 @@ int main() {
 		case '2':
 		{
 			printAll();
+			system("pause");
 			break;
 		}
 		case '3':
@@ -179,12 +173,26 @@ int main() {
 		}
 		case '7':
 		{
+			ifstream in;
+			in.open("sitename.txt");
+			for (int i = 0; i < 50; i++) {
+				getline(in, sitename[i]);
+				getline(in, number[i]);
+				getline(in, email[i]);
+				getline(in, password[i]);
+				k++;
+			}
+			in.close();
+			break;
+		}
+		case '8':
+		{
 			continue;
 			break;
 		}
 		}
 
-	} while (op != '7');
+	} while (op != '8');
 
 	return 0;
 
