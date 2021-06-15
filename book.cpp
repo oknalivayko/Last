@@ -1,6 +1,6 @@
 #include<iostream>
 #include<stdlib.h>
-#include <fstream>
+#include <fstream> //библиотека для подключения файлового ввода и вывода
 #include<string>
 #include <ctime>
 
@@ -21,7 +21,10 @@ int checksite(string check) {
 	return 1;
 }
 
-void add() {
+void add()
+/*Функция для добавления данных в базу. Пользователь добавляет данные о веб - сайта, номере телефона,
+  электронном адресе и пароль. Не принимает аргументов. */
+{
 	string check = "";
 	cout << "Enter website: ";
 	cin >> check;
@@ -41,7 +44,9 @@ void add() {
 	cout << "Enter password: ";
 	cin >> password[k];
 }
-void print(int c) {
+void print(int c)
+/* Функция для отображения данных, введеных пользователем. Принимает */
+{
 	if (sitename[c] == "")
 		return;
 	if (k > -1) {
@@ -52,7 +57,9 @@ void print(int c) {
 		system("pause");
 	}
 }
-void printAll() {
+void printAll()
+/* Функция выводит на экран список всех добавленных веб - сайтов и информацию о них. Не принимает аргументов. */
+{
 	if (k > -1) {
 		for (int i = 0; i <= k; i++) {
 			print(i);
@@ -60,7 +67,9 @@ void printAll() {
 	}
 }
 
-void updtinfo(int c) {
+void updtinfo(int c)
+/* */
+{
 	string check = "";
 	cout << "Enter website: ";
 	cin >> check;
@@ -78,13 +87,18 @@ void updtinfo(int c) {
 	cout << "password: ";
 	cin >> password[c];
 }
-void delSite(int c) {
+void delSite(int c)
+/* Функция для удаления веб - сайта, добавленного пользователем. Принимает */
+{
 	sitename[c] = "";
 	number[c] = "";
 	email[c] = "";
 	password[c] = "";
 }
-void Generate() {
+void Generate()
+/* Функция для генерации пароля. Пользователю предлагается выбрать сложность пароля, после чего функция
+генерирует пароль и выводит на экран. Не принимает аргументов. */
+{
 	srand(static_cast<unsigned int>(time(0))); // устанавливаем значение системных часов в качестве стартового числа
 	int level;
 	int length;
@@ -249,7 +263,7 @@ int main() {
 			while (sitename[j] != "") {
 				j++;
 			}
-			k = j-1;
+			k = j - 1;
 			in.close();
 			system("pause");
 			break;
