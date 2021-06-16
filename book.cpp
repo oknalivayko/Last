@@ -103,7 +103,10 @@ void delSite(int c)
   password[c] = "";
 }
 
-void CheckPassword() {
+void CheckPassword()
+/* Функция для проверки пароля на сложность. Пользователь вводит пароль и функция определяет
+ уровень сложности заданного пароля на один из трех возможных классов: Weak, Average, Strong.*/
+ {
   srand(static_cast<unsigned int>(time(0)));
 
   string password;
@@ -173,7 +176,7 @@ void CheckPassword() {
 
 void Generate()
 /* Функция для генерации пароля. Пользователю предлагается выбрать сложность
-пароля, после чего функция генерирует пароль и выводит на экран.Не принимает
+пароля, после чего функция генерирует пароль и выводит на экран. Не принимает
 аргументов.*/
 {
   srand(
@@ -322,19 +325,26 @@ int main() {
 
     case '7': {
       ofstream out;
-      out.open("sitename.txt");
-      if (!out.is_open()) {
-        cerr << "error\n";
-      }
-
-      for (int i = 0; i <= k; i++) {
-        out << sitename[i] << endl;
-        out << number[i] << endl;
-        out << email[i] << endl;
-        out << password[i] << endl;
-      }
-      out.close();
-      break;
+                ofstream fout;
+                out.open("sitename.txt");
+                fout.open("list.txt");
+                if (!out.is_open()) {
+                    cerr << "error\n";
+                }
+                fout << "WEBSITE\t\t\t" << "PHONE NUMBER\t\t" << "EMAIL\t\t\t" << "PASSWORD" << endl;
+                for (int i = 0; i <= k; i++) {
+                    out << sitename[i] << endl;
+                    out << number[i] << endl;
+                    out << email[i] << endl;
+                    out << password[i] << endl;
+                    fout << sitename[i] << "\t\t\t";
+                    fout << number[i] << "\t\t";
+                    fout << email[i] << "\t\t";
+                    fout << password[i] << endl;
+                }
+                fout.close();
+                out.close();
+                break;
     }
 
     case '8': {
