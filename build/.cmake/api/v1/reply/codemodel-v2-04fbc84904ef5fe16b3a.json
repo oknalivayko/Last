@@ -18,7 +18,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -38,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "cmake::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-cmake-ad305d21e8e8fef7e2f0.json",
+					"jsonFile" : "target-cmake-Debug-00d3a714650c749a57c4.json",
 					"name" : "cmake",
 					"projectIndex" : 0
 				}
