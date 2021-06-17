@@ -125,13 +125,13 @@ bool CheckNumber(string number) {
   if (number[0] != '+' || number[1] != '7' || number[2] != '9') {
     return false;
   }
-  
+
   for (int i = 3; i < number.size(); i++) {
     if (number[i] < '0' || number[i] > '9') {
       return false;
     }
   }
-  
+
   return true;
 }
 
