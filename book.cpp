@@ -1,9 +1,9 @@
 ﻿#include <ctime>
 #include <fstream>
 #include <iostream>
+#include <regex>
 #include <stdlib.h>
 #include <string>
-#include <regex>
 
 using namespace std;
 
@@ -62,7 +62,7 @@ void add() {
   while (!correct1) {
     cin >> email[k];
     correct1 = CheckEmail(email[k]);
-    
+
     if (correct1) {
       break;
     }
@@ -151,9 +151,9 @@ bool CheckNumber(string number) {
 
 ///Функция проверяет электронный адрес на валидность.
 ///Принимает строку.
-bool CheckEmail(string email)  {
+bool CheckEmail(string email) {
   const regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
-  return regex_match(email,pattern);
+  return regex_match(email, pattern);
 }
 
 ///Функция для проверки пароля на сложность. Пользователь вводит пароль
