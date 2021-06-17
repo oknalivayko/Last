@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include <regex>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ string email[50];
 string password[50];
 
 bool CheckNumber(string);
+bool CheckEmail(string);
 
 int k = -1;
 ///Перменная возвращает 1, если массив проходитпроверку, возвращает 0, если не
@@ -51,12 +53,23 @@ void add() {
     if (correct) {
       break;
     }
-    cout << "Incorrect, please try again..." << endl;
+    cout << "Incorrect format, please try again..." << endl;
   }
 
   cout << "Enter email: ";
-  cin >> email[k];
+
+  bool correct1 = false;
+  while (!correct1) {
+    cin >> email[k];
+    correct1 = CheckEmail(email[k]);
+    
+    if (correct1) {
+      break;
+    }
+    cout << "Incorrect format, please try again..." << endl;
+  }
   cout << "Enter password: ";
+
   cin >> password[k];
 }
 ///Функция для отображения данных, введеных пользователем, в консоли. Принимает
@@ -116,7 +129,8 @@ void delSite(int c) {
   email[c] = "";
   password[c] = "";
 }
-
+/// Функция для проверки номера телефона на валидность.
+/// Принимает строку
 bool CheckNumber(string number) {
   if (number.size() != 12) {
     return false;
@@ -133,6 +147,13 @@ bool CheckNumber(string number) {
   }
   
   return true;
+}
+
+///Функция проверяет электронный адрес на валидность.
+///Принимает строку.
+bool CheckEmail(string email)  {
+  const regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+  return regex_match(email,pattern);
 }
 
 ///Функция для проверки пароля на сложность. Пользователь вводит пароль
