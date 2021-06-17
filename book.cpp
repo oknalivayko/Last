@@ -10,6 +10,9 @@ string sitename[50];
 string number[50];
 string email[50];
 string password[50];
+
+bool CheckNumber(string);
+
 int k = -1;
 ///Перменная возвращает 1, если массив проходитпроверку, возвращает 0, если не
 ///проходит
@@ -36,8 +39,21 @@ void add() {
     cout << endl << "You have already entered data from this website" << endl;
     return;
   }
-  cout << "Enter phone nubmer: ";
-  cin >> number[k];
+
+  cout << "Enter phone nubmer:" << endl;
+  cout << "Format: +79xxxxxxxxx" << endl;
+
+  bool correct = false;
+  while (!correct) {
+    cin >> number[k];
+    correct = CheckNumber(number[k]);
+
+    if (correct) {
+      break;
+    }
+    cout << "Incorrect, please try again..." << endl;
+  }
+
   cout << "Enter email: ";
   cin >> email[k];
   cout << "Enter password: ";
@@ -100,6 +116,25 @@ void delSite(int c) {
   email[c] = "";
   password[c] = "";
 }
+
+bool CheckNumber(string number) {
+  if (number.size() != 12) {
+    return false;
+  }
+
+  if (number[0] != '+' || number[1] != '7' || number[2] != '9') {
+    return false;
+  }
+  
+  for (int i = 3; i < number.size(); i++) {
+    if (number[i] < '0' || number[i] > '9') {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
 ///Функция для проверки пароля на сложность. Пользователь вводит пароль
 ///функция определяет уровень сложности заданного пароля на один из трех
 ///возможных классов
