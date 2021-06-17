@@ -377,6 +377,7 @@ int main() {
       if (c > -1) {
         print(c);
       }
+      system("pause");
       break;
     }
 
@@ -385,6 +386,7 @@ int main() {
       if (c > -1) {
         updtinfo(c);
       }
+      system("pause");
       break;
     }
 
@@ -393,6 +395,7 @@ int main() {
       if (c > -1) {
         delSite(c);
       }
+      system("pause");
       break;
     }
 
@@ -403,6 +406,9 @@ int main() {
       fout.open("list.txt");
       if (!out.is_open()) {
         cerr << "error\n";
+      }
+      if (!fout.is_open()) {
+          cerr << "error\n";
       }
       fout << "WEBSITE\t\t\t"
            << "\t\t\t"
@@ -423,12 +429,17 @@ int main() {
       }
       fout.close();
       out.close();
+      cout << "List successfully saved";
+      system("pause");
       break;
     }
 
     case '8': {
       ifstream in;
       in.open("sitename.txt");
+      if (!in.is_open()) {
+          cerr << "error\n";
+      }
       for (int i = 0; i < 50; i++) {
         getline(in, sitename[i]);
         getline(in, number[i]);
