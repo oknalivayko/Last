@@ -4,6 +4,7 @@
 #include <regex>
 #include <stdlib.h>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -141,7 +142,7 @@ bool CheckNumber(string number) {
   }
 
   for (int i = 3; i < number.size(); i++) {
-    if (number[i] < '0' || number[i] > '9') {
+    if (!isdigit(number[i])) {
       return false;
     }
   }
@@ -192,19 +193,19 @@ void CheckPassword()
 
   int i;
   for (i = 0; i < password.size(); i++) {
-    if (password[i] >= 48 && password[i] <= 57) {
+    if (isdigit(password[i])) {
       digit++;
     }
-    if (password[i] >= 97 && password[i] <= 125) {
+    if (islower(password[i])) {
       lower++;
     }
-    if (password[i] >= 65 && password[i] <= 90) {
+    if (isupper(password[i])) {
       upper++;
     }
-    if (password[i] >= 33 && password[i] <= 47) {
+    if (ispunct(password[i])) {
       symb++;
     }
-    if (password[i] == password[i + 1]) {
+    if (i > 0 && password[i] == password[i - 1]) {
       length = 0;
     }
   }
