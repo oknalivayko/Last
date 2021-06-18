@@ -17,8 +17,10 @@ bool CheckNumber(string);
 bool CheckEmail(string);
 
 int k = -1;
-///Перменная возвращает 1, если массив проходитпроверку, возвращает 0, если не
-///проходит
+/// checksite
+/**
+ * Переменная возвращает 1, если массив проходит проверку; 0, если не проходит
+ */
 int checksite(string check) {
   for (int i = 0; i <= k; i++) {
     if (sitename[i] == check) {
@@ -27,10 +29,12 @@ int checksite(string check) {
   }
   return 1;
 }
-///Функция для добавления данных в базу. Не принимает аргументов.
+/// add
+/**
+ * Функция для добавления данных в базу. Не принимает аргументов.
+ */
 void add() {
-  // check принимает данные для проверки наличия такой же строки в массиве
-  // sitename
+  /// check проверяет наличие такой же строки в массиве sitename
   string check = "";
   cout << "Enter website: ";
   cin >> check;
@@ -73,8 +77,12 @@ void add() {
 
   cin >> password[k];
 }
-///Функция для отображения данных, введеных пользователем, в консоли. Принимает
-///значение индекса c массива
+
+/// print
+/**
+ * Функция для отображения данных, введеных пользователем, в консоли.
+ * \param c индекс строчного массива
+ */
 void print(int c)
 
 {
@@ -88,8 +96,11 @@ void print(int c)
     system("pause");
   }
 }
-/// Функция выводит на экран список всех добавленных веб - сайтов и информацию о
-/// них.Не принимает аргументов
+/// printAll
+/**
+ * Функция выводит на экран список всех добавленных сайтов и информацию о них
+ * Не принимает аргументов
+ */
 void printAll()
 
 {
@@ -99,8 +110,13 @@ void printAll()
     }
   }
 }
-/// Функция обновляет данные, введенные пользователем, принимает переменную
-/// индекс массива <param name="c"></param>
+
+/// updtInfo
+/**
+ *Функция обновляет данные, введенные пользователем
+ * \param c индекс строчного массива
+ */
+
 void updtinfo(int c)
 
 {
@@ -121,17 +137,25 @@ void updtinfo(int c)
   cout << "password: ";
   cin >> password[c];
 }
-/// Функция для удаления веб - сайта, добавленного пользователем.
-/// Принимает переменную индекс массива
-/// <param name="c"></param>
+/// delSite
+/**
+ * Функция для удаления веб - сайта, добавленного пользователем.
+ * \param c индекс строчного массива
+ */
+
 void delSite(int c) {
   sitename[c] = "";
   number[c] = "";
   email[c] = "";
   password[c] = "";
 }
-/// Функция для проверки номера телефона на валидность.
-/// Принимает строку
+
+/// CheckNumber
+/*
+ *Булевая функция для проверки номера телефона на валидность.
+ * \param number строка
+ */
+
 bool CheckNumber(string number) {
   if (number.size() != 12) {
     return false;
@@ -149,18 +173,23 @@ bool CheckNumber(string number) {
 
   return true;
 }
+/// CheckEmail
+/**
+ * Функция проверяет электронный адрес на валидность.
+ * \param email строка
+ */
 
-///Функция проверяет электронный адрес на валидность.
-///Принимает строку.
 bool CheckEmail(string email) {
   const regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
   return regex_match(email, pattern);
 }
 
-///Функция для проверки пароля на сложность. Пользователь вводит пароль
-///функция определяет уровень сложности заданного пароля на один из трех
-///возможных классов
-/// Weak, Average, Strong.
+/// CheckPassword
+/**
+ * Функция для проверки пароля на сложность.
+ * не принимает аргументов
+ */
+
 void CheckPassword()
 
 {
@@ -174,14 +203,10 @@ void CheckPassword()
   cin >> password;
 
   int length = password.size();
-  int baseScore = 48;
-  // буквы в верхнем регистре
-  int upper = 0;
-  // символы
-  int symb = 0;
-  // буквы в нижнем регистре
-  int lower = 0;
-  // цифры
+  int baseScore = 48; ///< буквы в верхнем регистре
+  int upper = 0;      ///< символы
+  int symb = 0;       ///< буквы в нижнем регистре
+  int lower = 0;      ///< цифры
   int digit = 0;
 
   int length_bonus = 2;
@@ -234,9 +259,11 @@ void CheckPassword()
   }
 }
 
-///Функция для генерации пароля. Пользователю предлагается выбрать сложность
-///пароля, после чего функция генерирует пароль и выводит на экран.Не принимает
-///аргументов
+/// Generate
+/**
+ * Функция для генерации пароля. С выбором сложности
+ * не принимает аргументов
+ */
 
 string Generate()
 
@@ -295,9 +322,13 @@ string Generate()
 
   return pass;
 }
-///Переменная для поиска строки в массиве, не принимает аргументов
-///Возвращает индекс массива совпадающей строки
-///Возвращает -1, если база пустая
+/// find
+/*
+ * Переменная для поиска строки в массиве
+ * Возвращает индекс массива совпадающей строки
+ * Возвращает -1, если база пустая
+ */
+
 int find() {
   if (k < 0)
     return -1;
@@ -378,6 +409,7 @@ int main() {
       if (c > -1) {
         print(c);
       }
+      system("pause");
       break;
     }
 
@@ -386,6 +418,7 @@ int main() {
       if (c > -1) {
         updtinfo(c);
       }
+      system("pause");
       break;
     }
 
@@ -394,6 +427,7 @@ int main() {
       if (c > -1) {
         delSite(c);
       }
+      system("pause");
       break;
     }
 
@@ -403,6 +437,9 @@ int main() {
       out.open("sitename.txt");
       fout.open("list.txt");
       if (!out.is_open()) {
+        cerr << "error\n";
+      }
+      if (!fout.is_open()) {
         cerr << "error\n";
       }
       fout << "WEBSITE\t\t\t"
@@ -424,12 +461,17 @@ int main() {
       }
       fout.close();
       out.close();
+      cout << "List successfully saved";
+      system("pause");
       break;
     }
 
     case '8': {
       ifstream in;
       in.open("sitename.txt");
+      if (!in.is_open()) {
+        cerr << "error\n";
+      }
       for (int i = 0; i < 50; i++) {
         getline(in, sitename[i]);
         getline(in, number[i]);
